@@ -1,0 +1,80 @@
+Algorithm #5 — Citation Prediction Engine
+
+🎯 Goal
+
+تحويل كل الإشارات اللي عندنا (Schema, Snippets, Authority, Freshness, Trust Signals) → Score رقمي يوضح Citation Likelihood (0 → 1).
+
+function predictCitation(page_data):
+
+    score = 0
+    weights = {
+        "schema": 0.25,
+        "snippets": 0.20,
+        "authority": 0.20,
+        "freshness": 0.15,
+        "content_structure": 0.20
+    }
+
+    # 1. Schema completeness
+    schema_score = check_schema_completeness(page_data.schema)
+    score += schema_score * weights["schema"]
+
+    # 2. Snippet quality
+    snippet_score = avg([s.score for s in page_data.snippets])
+    score += snippet_score * weights["snippets"]
+
+    # 3. Authority & Trust
+    if page_data.contains("author_info") and page_data.contains("citations"):
+        authority_score = 1
+    else:
+        authority_score = 0.5 if page_data.contains("author_info") else 0.2
+    score += authority_score * weights["authority"]
+
+    # 4. Freshness
+    freshness_days = days_since(page_data.last_updated)
+    if freshness_days <= 30:
+        freshness_score = 1
+    elif freshness_days <= 90:
+        freshness_score = 0.7
+    elif freshness_days <= 180:
+        freshness_score = 0.5
+    else:
+        freshness_score = 0.2
+    score += freshness_score * weights["freshness"]
+
+    # 5. Content structure (chunking, Q&A format)
+    structure_score = evaluate_content_structure(page_data.chunks)
+    score += structure_score * weights["content_structure"]
+
+    # Final normalize
+    citation_probability = round(score, 2)
+
+    return {
+        "url": page_data.url,
+        "citation_probability": citation_probability,
+        "platform_predictions": {
+            "ChatGPT": adjust_for_platform(citation_probability, "chatgpt"),
+            "Gemini": adjust_for_platform(citation_probability, "gemini"),
+            "Perplexity": adjust_for_platform(citation_probability, "perplexity")
+        }
+    }
+
+
+    📦 Example Output
+    {
+  "url": "example.com/ai-seo-guide",
+  "citation_probability": 0.82,
+  "platform_predictions": {
+    "ChatGPT": 0.85,
+    "Gemini": 0.78,
+    "Perplexity": 0.83
+  }
+}
+
+
+📊 Platform Adjustments (adjust_for_platform)
+	•	ChatGPT: بيحب المحتوى الطويل + FAQ style → نرفع النسبة لو فيه Q&A واضحة.
+	•	Gemini: بيعتمد على Schema + SEO التقليدي → نرفع النسبة لو فيه Product/FAQ schema.
+	•	Perplexity: بيفضّل recent + multimedia → نرفع النسبة لو الصفحة محدثة + فيها صور/فيديو.
+
+    

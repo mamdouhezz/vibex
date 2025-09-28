@@ -1,0 +1,50 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "schemaVersion": "1.0.0",
+    "type": "component-rules",
+    "ruleSetName": "VibeX Design System - Component Rules",
+    "description": "Guidelines and constraints for building reusable, modular, and accessible UI components in VibeX.",
+  
+    "principles": [
+      "Components must be modular, reusable, and follow the Single Responsibility Principle.",
+      "Every component should be responsive by default and tested across breakpoints.",
+      "All interactive components must be accessible (WCAG AA compliance).",
+      "Avoid 'God Components' — decompose into smaller logical parts.",
+      "Each component should be fully typed with TypeScript."
+    ],
+  
+    "standards": {
+      "structure": "Each component must live in its own folder with index.tsx, styles (if needed), and tests.",
+      "naming": "Component names must be PascalCase (e.g., UserProfileCard).",
+      "props": "Props must be explicit and typed. Avoid using 'any'.",
+      "communication": "Components should communicate via props (downwards) and callbacks (upwards)."
+    },
+  
+    "metrics": {
+      "maxLinesOfCode": {
+        "softLimit": 150,
+        "hardLimit": 250,
+        "action": "Refactor if above soft limit. Build fails if above hard limit."
+      },
+      "maxUseEffectHooks": {
+        "limit": 3,
+        "action": "If exceeded, refactor into custom hooks."
+      }
+    },
+  
+    "categories": {
+      "formElements": ["Input", "Textarea", "Select", "Checkbox", "RadioButton", "ToggleSwitch"],
+      "feedback": ["Modal", "Dialog", "Toast", "Snackbar", "AlertBanner"],
+      "navigation": ["Sidebar", "Navbar", "Tabs", "Breadcrumbs", "Pagination"],
+      "dataDisplay": ["Table", "Card", "Badge", "Tooltip", "Avatar", "ChartWrapper"],
+      "actions": ["Button", "IconButton", "DropdownMenu", "BulkActionBar"]
+    },
+  
+    "guidelines": [
+      "Extract business logic into custom hooks instead of embedding inside components.",
+      "Use TailwindCSS for styling exclusively. No inline styles unless dynamic.",
+      "All components must support light and dark themes.",
+      "Ensure consistent padding, margin, and spacing using design tokens.",
+      "Each component must include unit tests for core functionality."
+    ]
+  }

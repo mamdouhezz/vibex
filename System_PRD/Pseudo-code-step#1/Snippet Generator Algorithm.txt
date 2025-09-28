@@ -1,0 +1,25 @@
+3️⃣ Snippet Generator Algorithm
+
+Goal: اقتراح Answer-first snippet (40–60 كلمة) لكل سؤال أو heading.
+
+function generateSnippets(chunks):
+    snippets = []
+
+    for chunk in chunks:
+        if chunk.snippet_ready:
+            # Use summarization model
+            snippet_text = summarize_to_length(chunk.text, 40, 60)
+
+            snippets.append({
+                "heading": chunk.heading,
+                "snippet": snippet_text,
+                "score": evaluate_snippet(snippet_text) # readability, directness
+            })
+        else:
+            snippets.append({
+                "heading": chunk.heading,
+                "snippet": "⚠️ Content too short/long for snippet",
+                "score": 0
+            })
+
+    return snippets

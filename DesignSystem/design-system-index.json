@@ -1,0 +1,60 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "schemaVersion": "1.0.0",
+    "ruleSetName": "VibeX Design System Index",
+    "version": "1.0.0",
+    "description": "Central index referencing all active design system configs for VibeX. Every developer or AI agent must comply with these files before implementing UI/UX elements.",
+  
+    "files": [
+      {
+        "id": "COLORS",
+        "name": "Color Tokens",
+        "file": "colors.tokens.json",
+        "path": "/DesignSystem/colors.tokens.json"
+      },
+      {
+        "id": "TYPOGRAPHY",
+        "name": "Typography Tokens",
+        "file": "typography.tokens.json",
+        "path": "/DesignSystem/typography.tokens.json"
+      },
+      {
+        "id": "ICONS",
+        "name": "Iconography Rules",
+        "file": "icons.rules.json",
+        "path": "/DesignSystem/icons.rules.json"
+      },
+      {
+        "id": "ILLUSTRATIONS",
+        "name": "Illustration Rules",
+        "file": "illustrations.rules.json",
+        "path": "/DesignSystem/illustrations.rules.json"
+      },
+      {
+        "id": "COMPONENTS",
+        "name": "Component Rules",
+        "file": "components.rules.json",
+        "path": "/DesignSystem/components.rules.json"
+      },
+      {
+        "id": "PAGES",
+        "name": "Page Rules",
+        "file": "pages.rules.json",
+        "path": "/DesignSystem/pages.rules.json"
+      }
+    ],
+  
+    "enforcement": {
+      "policy": "All UI/UX implementations must validate against these design system configs before merging or deployment.",
+      "verification_tools": [
+        "Figma Tokens Plugin",
+        "Tailwind Theme Integration",
+        "Accessibility Audits (WCAG AA)",
+        "Visual Regression Testing"
+      ],
+      "violations": {
+        "action": "Reject PR/commit automatically if design system rules are violated.",
+        "escalation": "Flag to Design System Lead or AI Staff Engineer for review."
+      }
+    }
+  }

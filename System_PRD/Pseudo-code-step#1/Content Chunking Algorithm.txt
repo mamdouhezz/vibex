@@ -1,0 +1,35 @@
+1️⃣ Content Chunking Algorithm
+
+Goal: تقسيم الصفحة لمقاطع صغيرة (chunks) قابلة للفهم والاستخدام من الـ AI engines.
+
+function chunkContent(page_html):
+    # Step 1: Clean HTML
+    text = remove_scripts_and_ads(page_html)
+    sections = extract_headings_and_paragraphs(text)
+
+    chunks = []
+    current_chunk = ""
+
+    # Step 2: Iterate over sections
+    for section in sections:
+        if length(current_chunk + section) < MAX_CHUNK_SIZE:
+            current_chunk += section
+        else:
+            chunks.append(current_chunk)
+            current_chunk = section
+    
+    # Step 3: Add metadata
+    for chunk in chunks:
+        chunk_id = generate_uuid()
+        snippet_ready = (word_count(chunk) >= 40 AND word_count(chunk) <= 60)
+        heading = extract_closest_heading(chunk)
+        
+        save(ContentChunk{
+            id: chunk_id,
+            text: chunk,
+            length: word_count(chunk),
+            heading: heading,
+            snippet_ready: snippet_ready
+        })
+
+    return chunks

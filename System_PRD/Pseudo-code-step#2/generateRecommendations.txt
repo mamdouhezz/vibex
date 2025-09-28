@@ -1,0 +1,112 @@
+Algorithm #4 — Recommendation Engine
+
+🎯 Goal
+
+إعطاء Actionable Fixes (محددة + قابلة للتنفيذ) بناءً على المشاكل اللي اكتشفناها من الـ Engine السابق.
+
+
+function generateRecommendations(page_data):
+
+    recommendations = []
+
+    # 1. Check Schema issues
+    if page_data.schema.missing is not empty:
+        for schema in page_data.schema.missing:
+            recommendations.append({
+                "type": "schema_fix",
+                "priority": "high",
+                "target": "page",
+                "message": f"Add {schema} schema for better AI visibility",
+                "suggested_code": generate_schema_template(schema, page_data.url)
+            })
+
+    # 2. Check Snippet quality
+    for snippet in page_data.snippets:
+        if snippet.score < 0.7:
+            recommendations.append({
+                "type": "snippet_fix",
+                "priority": "medium",
+                "target": snippet.heading,
+                "message": "Rewrite snippet to be more direct (40–60 words)",
+                "example_fix": rewrite_snippet(snippet.heading, snippet.snippet)
+            })
+
+    # 3. Check Content length (chunks too long/short)
+    for chunk in page_data.chunks:
+        if chunk.length < 40:
+            recommendations.append({
+                "type": "content_fix",
+                "priority": "low",
+                "target": chunk.heading,
+                "message": "Expand this section (minimum 40 words for AI citation)",
+                "example_fix": suggest_additional_content(chunk.heading)
+            })
+        elif chunk.length > 150:
+            recommendations.append({
+                "type": "content_fix",
+                "priority": "medium",
+                "target": chunk.heading,
+                "message": "Split long content into smaller sections (max 150 words per chunk)",
+                "example_fix": suggest_split_content(chunk.text)
+            })
+
+    # 4. Add Authority & Trust signals
+    if not page_data.contains("author_info"):
+        recommendations.append({
+            "type": "trust_fix",
+            "priority": "high",
+            "target": "page",
+            "message": "Add author name, credentials & last updated date",
+            "example_fix": {
+                "author": "Sam Hogan",
+                "credentials": "AI Search Expert",
+                "last_updated": "Sep 2025"
+            }
+        })
+
+    return recommendations
+
+    📦 Example Output
+
+    {
+  "url": "example.com/ai-seo-guide",
+  "recommendations": [
+    {
+      "type": "schema_fix",
+      "priority": "high",
+      "target": "page",
+      "message": "Add Product schema for AI shopping optimization",
+      "suggested_code": "{ '@context': 'https://schema.org', '@type': 'Product', ... }"
+    },
+    {
+      "type": "snippet_fix",
+      "priority": "medium",
+      "target": "What is AEO?",
+      "message": "Rewrite snippet to be more direct (40–60 words)",
+      "example_fix": "Answer Engine Optimization (AEO) helps structure content so AI like ChatGPT and Gemini can cite it directly, improving brand visibility without relying on traditional clicks."
+    },
+    {
+      "type": "content_fix",
+      "priority": "medium",
+      "target": "Benefits of AEO",
+      "message": "Split long content into smaller sections (max 150 words per chunk)",
+      "example_fix": ["Benefit 1:...", "Benefit 2:...", "Benefit 3:..."]
+    },
+    {
+      "type": "trust_fix",
+      "priority": "high",
+      "target": "page",
+      "message": "Add author info & last updated date",
+      "example_fix": { "author": "Sam Hogan", "last_updated": "Sep 2025" }
+    }
+  ]
+}
+
+
+📊 Key Features of the Recommendation Engine
+	•	Prioritization: كل Fix ليه Priority (High/Medium/Low).
+	•	Actionable: مفيش كلام عام → كله Fixes بكود أو Examples جاهزة.
+	•	Context-Aware: بيعتمد على الـ Page Data (chunks/snippets/schema).
+	•	Trust & Authority: بيشجع إضافة authorship + citations.
+
+    

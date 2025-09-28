@@ -1,0 +1,26 @@
+📦 Output Example
+
+
+{
+  "url": "example.com/page",
+  "chunks": [
+    {
+      "id": "chunk_001",
+      "heading": "What is AEO?",
+      "text": "Answer Engine Optimization (AEO) is ...",
+      "length": 55,
+      "snippet_ready": true
+    }
+  ],
+  "schema": {
+    "detected": ["Article", "FAQ"],
+    "missing": ["Product"]
+  },
+  "snippets": [
+    {
+      "heading": "What is AEO?",
+      "snippet": "Answer Engine Optimization (AEO) means structuring content so AI systems like ChatGPT and Gemini can easily cite it as an answer...",
+      "score": 0.91
+    }
+  ]
+}

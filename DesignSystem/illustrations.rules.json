@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "schemaVersion": "1.0.0",
+    "type": "illustration-rules",
+    "ruleSetName": "VibeX Design System - Illustration Rules",
+    "description": "Guidelines for using illustrations across the VibeX application. Ensures visual consistency and alignment with brand identity.",
+  
+    "style": "Flat, modern, line-based SaaS illustrations with clean vectors and scalable usage.",
+    "sources": [
+      "unDraw",
+      "Storyset"
+    ],
+  
+    "usage": {
+      "onboarding": "Use welcoming, playful illustrations that match the brand palette to guide new users.",
+      "emptyStates": "Use minimal, explanatory illustrations with light accents to indicate no data or content.",
+      "errorPages": {
+        "404": "Friendly illustration with neutral colors to soften error messaging.",
+        "500": "Technical yet approachable illustration, with emphasis on retry/help."
+      },
+      "marketing": "More expressive, storytelling illustrations for landing and promo pages."
+    },
+  
+    "rules": [
+      "All illustrations must follow the brand color tokens (primary, accent, neutral).",
+      "File format must be SVG for scalability, fallback PNG if needed.",
+      "Maximum file size: 200KB per asset.",
+      "Do not use stock photography; only vector-based illustrations.",
+      "Ensure accessibility: illustrations should not carry critical information alone (must be paired with text).",
+      "Maintain consistency: avoid mixing different illustration styles in the same flow."
+    ]
+  }

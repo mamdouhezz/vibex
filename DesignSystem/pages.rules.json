@@ -1,0 +1,54 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "schemaVersion": "1.0.0",
+    "type": "page-rules",
+    "ruleSetName": "VibeX Design System - Page Rules",
+    "description": "Blueprints and guidelines for structuring standard pages in VibeX. Ensures design consistency, usability, and scalability.",
+  
+    "principles": [
+      "Each page must follow a clear visual hierarchy (header, main content, footer).",
+      "Pages must be responsive and optimized for mobile, tablet, and desktop.",
+      "Use consistent spacing, typography, and color tokens from the Design System.",
+      "Each page should have an empty state and error state defined.",
+      "Avoid unnecessary complexity: pages should load fast and remain lightweight."
+    ],
+  
+    "pageBlueprints": {
+      "dashboard": {
+        "sections": ["Sidebar Navigation", "Header Bar", "Widgets/Stats", "Activity Feed"],
+        "requirements": ["Quick insights", "Easy navigation", "Responsive layout"]
+      },
+      "settings": {
+        "sections": ["Profile Settings", "Preferences", "Notifications", "Security"],
+        "requirements": ["Clear grouping of settings", "Save/Cancel actions always visible"]
+      },
+      "pricing": {
+        "sections": ["Plan Cards", "Feature Comparison Table", "CTA Buttons"],
+        "requirements": ["Highlight recommended plan", "Responsive tables"]
+      },
+      "billing": {
+        "sections": ["Current Plan", "Billing History", "Payment Methods"],
+        "requirements": ["Show invoices clearly", "Add/Remove payment methods"]
+      },
+      "onboarding": {
+        "sections": ["Welcome Screen", "Steps/Progress Bar", "Form Inputs", "Completion Message"],
+        "requirements": ["Minimal friction", "Progress clearly shown"]
+      },
+      "auth": {
+        "pages": ["Sign Up", "Sign In", "Forgot Password"],
+        "requirements": ["Minimal fields", "Social login support", "Responsive forms"]
+      },
+      "errorPages": {
+        "pages": ["404 Not Found", "500 Server Error"],
+        "requirements": ["Friendly messaging", "Illustrations aligned with brand"]
+      }
+    },
+  
+    "guidelines": [
+      "All pages must support dark and light mode.",
+      "Each page should define loading states explicitly.",
+      "Use illustration rules for empty and error states.",
+      "Navigation must always be consistent across all pages.",
+      "Accessibility (WCAG AA) is mandatory for every page."
+    ]
+  }

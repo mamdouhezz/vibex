@@ -1,0 +1,129 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "schemaVersion": "1.0.0",
+    "ruleSetName": "VibeX Master Ruleset Index",
+    "version": "1.0.0",
+    "description": "Centralized master index for all VibeX rule sets, covering System & Coding Rules and Design System Rules. Every developer or AI agent must comply with these before implementation.",
+  
+    "categories": {
+      "systemCodingRules": [
+        {
+          "id": "COMPONENT_MODULARITY",
+          "name": "Component Modularity & SRP Rules",
+          "file": "component-modularity.rules.json",
+          "path": "/System & Coding Rules/component-modularity.rules.json"
+        },
+        {
+          "id": "REGRESSION_PREVENTION",
+          "name": "Zero-Regression & Feature Preservation Rules",
+          "file": "regression-prevention.rules.json",
+          "path": "/System & Coding Rules/regression-prevention.rules.json"
+        },
+        {
+          "id": "STYLING_TOKENS",
+          "name": "Styling & Theming Rules",
+          "file": "styling-tokens.rules.json",
+          "path": "/System & Coding Rules/styling-tokens.rules.json"
+        },
+        {
+          "id": "LIBRARIES_USAGE",
+          "name": "Libraries & Visualization Rules",
+          "file": "libraries-usage.rules.json",
+          "path": "/System & Coding Rules/libraries-usage.rules.json"
+        },
+        {
+          "id": "ASSETS_HANDLING",
+          "name": "Image & Asset Rules",
+          "file": "assets-handling.rules.json",
+          "path": "/System & Coding Rules/assets-handling.rules.json"
+        },
+        {
+          "id": "DEPENDENCY_ARCHITECTURE",
+          "name": "Unidirectional Dependency Rules",
+          "file": "dependency-architecture.rules.json",
+          "path": "/System & Coding Rules/dependency-architecture.rules.json"
+        },
+        {
+          "id": "TYPE_SYSTEM",
+          "name": "Type System SSOT Rules",
+          "file": "type-system.rules.json",
+          "path": "/System & Coding Rules/type-system.rules.json"
+        },
+        {
+          "id": "CIRCULAR_DEPENDENCY",
+          "name": "Circular Dependency Audit Rules",
+          "file": "circular-dependency.rules.json",
+          "path": "/System & Coding Rules/circular-dependency.rules.json"
+        },
+        {
+          "id": "SECURITY_PRIVACY",
+          "name": "Security & Privacy Rules",
+          "file": "security-privacy.rules.json",
+          "path": "/System & Coding Rules/security-privacy.rules.json"
+        },
+        {
+          "id": "TRACKING_STANDARDS",
+          "name": "Analytics & Tracking Standards",
+          "file": "tracking-standards.rules.json",
+          "path": "/System & Coding Rules/tracking-standards.rules.json"
+        }
+      ],
+  
+      "designSystemRules": [
+        {
+          "id": "COLORS",
+          "name": "Color Tokens",
+          "file": "colors.tokens.json",
+          "path": "/DesignSystem/colors.tokens.json"
+        },
+        {
+          "id": "TYPOGRAPHY",
+          "name": "Typography Tokens",
+          "file": "typography.tokens.json",
+          "path": "/DesignSystem/typography.tokens.json"
+        },
+        {
+          "id": "ICONS",
+          "name": "Iconography Rules",
+          "file": "icons.rules.json",
+          "path": "/DesignSystem/icons.rules.json"
+        },
+        {
+          "id": "ILLUSTRATIONS",
+          "name": "Illustration Rules",
+          "file": "illustrations.rules.json",
+          "path": "/DesignSystem/illustrations.rules.json"
+        },
+        {
+          "id": "COMPONENTS",
+          "name": "Component Rules",
+          "file": "components.rules.json",
+          "path": "/DesignSystem/components.rules.json"
+        },
+        {
+          "id": "PAGES",
+          "name": "Page Rules",
+          "file": "pages.rules.json",
+          "path": "/DesignSystem/pages.rules.json"
+        }
+      ]
+    },
+  
+    "enforcement": {
+      "policy": "All contributions (code, design, UX) must validate against this Master Index before merging or deployment.",
+      "verification_tools": [
+        "TypeScript Compiler (tsc --noEmit)",
+        "ESLint with custom rules",
+        "Figma Tokens Plugin",
+        "Tailwind Theme Integration",
+        "Accessibility Audits (WCAG AA)",
+        "Visual Regression Testing",
+        "Security Scans",
+        "Analytics QA Checks"
+      ],
+      "violations": {
+        "action": "Reject PR/commit automatically if rules are violated.",
+        "escalation": "Flag to AI Staff Engineer or Design System Lead for review."
+      }
+    }
+  }

@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "schemaVersion": "1.0.0",
+    "type": "typography-tokens",
+    "ruleSetName": "VibeX Design System - Typography Tokens",
+    "description": "Typography tokens for VibeX. Defines fonts, weights, sizes, and line heights for internal pages (Noto Sans Arabic) and landing page (IBM Plex Arabic).",
+  
+    "fonts": {
+      "internal": {
+        "name": "Noto Sans Arabic",
+        "source": "Google Fonts",
+        "usage": "All internal app pages including dashboard and components"
+      },
+      "landing": {
+        "name": "IBM Plex Arabic",
+        "source": "Google Fonts",
+        "usage": "Marketing and SaaS landing pages only"
+      }
+    },
+  
+    "scale": {
+      "h1": { "size": "48px", "lineHeight": "56px", "weight": "700" },
+      "h2": { "size": "36px", "lineHeight": "44px", "weight": "600" },
+      "h3": { "size": "28px", "lineHeight": "36px", "weight": "600" },
+      "h4": { "size": "22px", "lineHeight": "28px", "weight": "500" },
+      "h5": { "size": "18px", "lineHeight": "24px", "weight": "500" },
+      "h6": { "size": "16px", "lineHeight": "22px", "weight": "500" },
+  
+      "body-lg": { "size": "18px", "lineHeight": "28px", "weight": "400" },
+      "body": { "size": "16px", "lineHeight": "24px", "weight": "400" },
+      "body-sm": { "size": "14px", "lineHeight": "20px", "weight": "400" },
+  
+      "caption": { "size": "12px", "lineHeight": "16px", "weight": "400" },
+      "overline": { "size": "10px", "lineHeight": "16px", "weight": "500", "transform": "uppercase" }
+    },
+  
+    "guidelines": [
+      "Use Noto Sans Arabic for all internal UI and dashboards to ensure unified Arabic/English readability.",
+      "Use IBM Plex Arabic exclusively on the landing page for marketing and branding consistency.",
+      "Headings should be bold or semi-bold for hierarchy clarity.",
+      "Body text should remain regular weight for readability.",
+      "Always use defined tokens, not arbitrary font sizes or weights."
+    ]
+  }

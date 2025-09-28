@@ -1,0 +1,115 @@
+{
+    "schemaVersion": "1.0.0",
+    "engine": "VibeX Backend Core Engine",
+    "description": "Master collection of all backend algorithms powering chunking, schema validation, snippet extraction, recommendations, and citation prediction.",
+  
+    "algorithms": [
+  
+      {
+        "id": "ALGO_01",
+        "name": "Content Chunking & Indexing",
+        "goal": "Divide raw content into smaller meaningful chunks (Q&A style, headers, lists) for AI engines to cite easily.",
+        "steps": [
+          "Input: Raw HTML/Page Content",
+          "Clean content (remove ads, boilerplate, duplicate text)",
+          "Chunk by headers (H1, H2, H3), paragraphs, FAQs",
+          "Ensure each chunk is self-contained (40–80 words)",
+          "Store chunks with metadata (title, question, answer, date)"
+        ],
+        "output_example": {
+          "chunks": [
+            {
+              "id": "chunk_001",
+              "question": "What is AEO?",
+              "answer": "Answer Engine Optimization (AEO) is optimizing content for AI citation...",
+              "length": 62,
+              "last_updated": "2025-08-01"
+            }
+          ]
+        }
+      },
+  
+      {
+        "id": "ALGO_02",
+        "name": "Schema Validation Engine",
+        "goal": "Check schema markup (FAQ, HowTo, Product, LocalBusiness) for completeness & compliance with 2025 standards.",
+        "steps": [
+          "Parse structured data (JSON-LD, Microdata)",
+          "Validate required fields (context, type, mainEntity)",
+          "Check freshness of schema (lastUpdated within 90 days)",
+          "Score schema completeness (0–1 scale)"
+        ],
+        "output_example": {
+          "schema_type": "FAQPage",
+          "score": 0.9,
+          "missing_fields": ["author"],
+          "valid": true
+        }
+      },
+  
+      {
+        "id": "ALGO_03",
+        "name": "Snippet Extraction Engine",
+        "goal": "Extract 40–60 word concise answers from content to maximize AI snippet citation.",
+        "steps": [
+          "Scan chunks for direct answer sentences",
+          "Trim paragraphs into 40–60 word summaries",
+          "Add metadata (question, context, updated date)",
+          "Rank snippets by clarity and authority"
+        ],
+        "output_example": {
+          "snippet": "AEO (Answer Engine Optimization) ensures your content is cited by AI...",
+          "length": 52,
+          "score": 0.87
+        }
+      },
+  
+      {
+        "id": "ALGO_04",
+        "name": "Optimization Recommendation Engine",
+        "goal": "Generate actionable optimization steps (content, schema, authority, freshness) to improve AI visibility.",
+        "steps": [
+          "Input: Page data (chunks, schema, snippets, last_updated)",
+          "Check missing schema → Recommend fixes",
+          "Check old updates → Recommend refresh",
+          "Check missing Q&A format → Recommend rewriting",
+          "Output prioritized recommendations with estimated impact"
+        ],
+        "output_example": {
+          "recommendations": [
+            {
+              "type": "schema",
+              "message": "Add missing author field in FAQ schema",
+              "priority": "high"
+            },
+            {
+              "type": "content",
+              "message": "Rewrite intro to be answer-first",
+              "priority": "medium"
+            }
+          ]
+        }
+      },
+  
+      {
+        "id": "ALGO_05",
+        "name": "Citation Prediction Engine",
+        "goal": "Predict likelihood of a page being cited in ChatGPT, Gemini, or Perplexity.",
+        "steps": [
+          "Input: Page data (schema, snippets, freshness, authority, structure)",
+          "Weight each factor (schema=25%, snippets=20%, authority=20%, freshness=15%, structure=20%)",
+          "Calculate normalized citation score (0–1)",
+          "Adjust score for platform preferences (ChatGPT, Gemini, Perplexity)"
+        ],
+        "output_example": {
+          "url": "example.com/ai-seo-guide",
+          "citation_probability": 0.82,
+          "platform_predictions": {
+            "ChatGPT": 0.85,
+            "Gemini": 0.78,
+            "Perplexity": 0.83
+          }
+        }
+      }
+    ]
+  }

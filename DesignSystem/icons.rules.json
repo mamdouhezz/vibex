@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "schemaVersion": "1.0.0",
+    "type": "icon-rules",
+    "ruleSetName": "VibeX Design System - Iconography Rules",
+    "description": "Guidelines and rules for icon usage in VibeX. Ensures consistency, performance, and alignment with the design system.",
+  
+    "library": "react-icons",
+    "approvedSets": [
+      "Lucide",
+      "Heroicons",
+      "Font Awesome"
+    ],
+  
+    "rules": [
+      "Icons must be imported individually from react-icons to reduce bundle size.",
+      "Do not inline raw SVGs unless they are registered inside the Design System.",
+      "Icons must follow brand color tokens (primary, neutral, semantic).",
+      "Use consistent sizing: small (16px), medium (20px), large (24px), extra-large (32px).",
+      "Icons used for actions must always have accessible labels (aria-label or title).",
+      "Icons should never replace text for critical actions, they must be paired with labels.",
+      "Maintain visual consistency: avoid mixing styles from different sets in the same component unless justified."
+    ],
+  
+    "guidelines": [
+      "Lucide: Use for lightweight UI actions and dashboards.",
+      "Heroicons: Default choice for app navigation and core components.",
+      "Font Awesome: Use as fallback for broader icon coverage."
+    ]
+  }

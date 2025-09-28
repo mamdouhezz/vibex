@@ -1,0 +1,23 @@
+2️⃣ Schema Detector Algorithm
+
+Goal: اكتشاف هل الصفحة فيها Schema Markup (FAQ, Product, HowTo, LocalBusiness).
+
+function detectSchema(page_html):
+    schemas = ["FAQ", "Product", "HowTo", "LocalBusiness", "Article", "Review"]
+    detected = []
+
+    for schema in schemas:
+        if contains_jsonld(page_html, schema):
+            detected.append(schema)
+    
+    if detected is empty:
+        return Recommendation{
+            type: "schema_missing",
+            target: "page",
+            fix: generate_schema_template(page_html)
+        }
+    else:
+        return {
+            "detected_schemas": detected,
+            "valid": validate_jsonld(page_html, detected)
+        }

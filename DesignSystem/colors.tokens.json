@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "schemaVersion": "1.0.0",
+    "type": "color-tokens",
+    "ruleSetName": "VibeX Design System - Color Tokens",
+    "description": "Centralized color tokens for the VibeX Design System. Supports Light & Dark mode with brand, semantic, and neutral palettes.",
+  
+    "colors": {
+      "neutral": {
+        "50": "#FAFAFA",
+        "100": "#F5F5F5",
+        "200": "#E5E7EB",
+        "400": "#9CA3AF",
+        "600": "#4B5563",
+        "800": "#1F2937",
+        "900": "#111827"
+      },
+  
+      "brand": {
+        "primary-50": "#EEF2FF",
+        "primary-100": "#E0E7FF",
+        "primary-500": "#6366F1",
+        "primary-700": "#4338CA",
+        "primary-900": "#312E81",
+  
+        "accent-500": "#06B6D4",
+        "accent-700": "#0891B2"
+      },
+  
+      "semantic": {
+        "success": "#10B981",
+        "warning": "#F59E0B",
+        "error": "#EF4444",
+        "info": "#3B82F6"
+      }
+    },
+  
+    "modes": {
+      "light": {
+        "background": "#FFFFFF",
+        "foreground": "#111827"
+      },
+      "dark": {
+        "background": "#111827",
+        "foreground": "#F9FAFB"
+      }
+    },
+  
+    "guidelines": [
+      "Always use tokens instead of hard-coded hex values.",
+      "Respect light/dark mode contrasts.",
+      "Semantic colors must be used only for their intended meaning (success, error, etc.).",
+      "Do not invent new brand shades; extend tokens here first."
+    ]
+  }
